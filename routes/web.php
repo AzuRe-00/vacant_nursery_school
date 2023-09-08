@@ -1,6 +1,10 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\User\UserController;
+use App\Http\Controllers\User\HomeController;
+use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\AdminHomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,10 +39,7 @@ Route::post('register', [UserController::class, 'store'])->name('register.store'
 Route::get('login', [UserController::class, 'index'])->name('login.index'); 
 Route::post('login', [UserController::class, 'login'])->name('login.login');
 Route::get('logout', [UserController::class, 'logout'])->name('login.logout');
-   
-Route::prefix('user')->group(function(){
-    Route::get('/',[HomeController::class, 'dashboard'])->name('user.dashboard');
-});
+Route::post('logout', [HomeController::class, 'logout']);
 
 Route::prefix('user')->middleware('auth.members:members')->group(function(){
     Route::get('/', [HomeController::class, 'dashboard'])->name('user.dashboard');
@@ -50,8 +51,7 @@ Route::prefix('admin')->group(function(){
    Route::get('login', [AdminController::class, 'index'])->name('admin.login.index'); 
    Route::post('login', [AdminController::class, 'login'])->name('admin.login.login');
    Route::get('logout', [AdminController::class, 'logout'])->name('admin.login.logout');
-   
-   Route::get('/',[AdminHomeController::class, 'dashboard'])->name('admin.dashboard');
+   Route::post('logout', [AdminHomeController::class, 'logout']);
 });
 
 Route::prefix('adimin')->middleware('auth:admins')->group(function(){
