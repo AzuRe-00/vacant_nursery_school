@@ -1,10 +1,19 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\User;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    //
+    public function dashboard()
+    {
+        return view('main');
+    }
+    
+     public function logout()
+    {
+        return view('welcome');
+    }
 }

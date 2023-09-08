@@ -34,7 +34,7 @@ class AdminController extends Controller
         
         event(new Registered($admin));
         
-        Auth::guard('admin')->login($admin);
+        Auth::guard('admins')->login($admin);
         
         return redirect(RouteServiceProvider::Home);
     }
@@ -69,7 +69,7 @@ class AdminController extends Controller
         Auth::guard('admins')->logout();
         $request->session()->regenerateToken();
         
-        return redirect()->route('admin.dashboard')->with([
+        return redirect()->route('admin.login.index')->with([
             'logout_msg' => 'ログアウトしました！',
         ]);
     }
