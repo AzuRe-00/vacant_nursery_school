@@ -10,13 +10,13 @@
         <div class='posts'>
             @foreach ($posts as $post)
                 <div class='post'>
-                    <p class='body'>{{ $post->body }}</p>
+                    <a href='/admin/posts/{{ $post->id }}'><h2 class='title'>{{ $post->title }}</h2></a>
                 </div>
             @endforeach
         </div>
         
-        <h2 class='switch'><!--DBの追加-->
-            <a href='/admin/{{ $admin }}'>保育情報追加</a>
+        <h2 class='addition'>
+            <a href='/admin/add'>保育情報追加</a>
         </h2>
         
         <form method="POST" action="{{ route('admin.login.logout') }}">
@@ -27,3 +27,4 @@
             </button>
         </form>
     </body>
+</html>
