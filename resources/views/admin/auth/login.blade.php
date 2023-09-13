@@ -5,7 +5,10 @@
 
     <form method="POST" action="/admin/login">
         @csrf
-
+        
+        @error('login')
+         <p>{{ $message }}</p>
+         @enderror
         <!-- Email Address -->
         <div>
             <x-input-label for="email" :value="__('メールアドレス')" />

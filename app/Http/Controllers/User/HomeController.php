@@ -7,9 +7,9 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function dashboard()
+    public function dashboard(Post $post)
     {
-        return view('main');
+        return view('main')->with(['posts' => $post->get()]);
     }
     
      public function logout()

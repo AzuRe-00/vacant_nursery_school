@@ -5,16 +5,22 @@
         <title>保育記事一覧</title>
     </head>
     <body>
-        <h1>保育施設一覧</h1>
-        <form action="/psots" method="POST"><!--後で治す-->
-            @csrf
-            <a>test</a>
-        </form>
+        <h1>保育施設</h1>
+        <h1 class='title'>{{ $admin->name }}</h1>
+        <div class='posts'>
+            @foreach ($posts as $post)
+                <div class='post'>
+                    <a href='/admin/posts/{{ $post->id }}'><h2 class='title'>{{ $post->title }}</h2></a>
+                </div>
+            @endforeach
+        </div>
         
-        <form method="POST" action="{{ route('login.logout') }}">
+        <form method="POST" action="{{ route('admin.login.logout') }}">
             @csrf
+
             <button type="submit" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                 {{ __('ログアウト') }}
             </button>
         </form>
     </body>
+</html>

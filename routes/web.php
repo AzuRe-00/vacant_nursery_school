@@ -5,6 +5,7 @@ use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\User\HomeController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AdminHomeController;
+use App\Http\Controllers\Admin\AddController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -52,8 +53,12 @@ Route::prefix('admin')->group(function(){
    Route::post('login', [AdminController::class, 'login'])->name('admin.login.login');
    Route::get('logout', [AdminController::class, 'logout'])->name('admin.login.logout');
    Route::post('logout', [AdminHomeController::class, 'logout']);
+   
+   Route::get('add', [AddController::class, 'create']);
+   Route::post('posts', [AddController::class, 'store']);
+   Route::get('posts/{post}', [AddController::class, 'show']);
 });
 
-Route::prefix('adimin')->middleware('auth:admins')->group(function(){
+Route::prefix('admin')->middleware('auth:admins')->group(function(){
     Route::get('/', [AdminHomeController::class, 'dashboard'])->name('admin.dashboard');
 });
