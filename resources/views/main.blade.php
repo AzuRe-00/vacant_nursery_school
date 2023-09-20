@@ -6,11 +6,11 @@
     </head>
     <body>
         <h1>保育施設</h1>
-        <h1 class='title'>{{ $admin->name }}</h1>
+        <h1 class='title'>{{ $user->name }}</h1>
         <div class='posts'>
             @foreach ($posts as $post)
                 <div class='post'>
-                    <a href='/admin/posts/{{ $post->id }}'><h2 class='title'>{{ $post->title }}</h2></a>
+                    <a href='/posts/{{ $post->id }}'><h2 class='title'>{{ $post->title }}</h2></a>
                 </div>
             @endforeach
         </div>

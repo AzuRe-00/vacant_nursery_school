@@ -7,12 +7,17 @@
     <body>
         <h1 class='title'>{{ $post->title }}</h1>
         <div class="content">
-            <div class="content__post">
+            <div class="content_post">
                 <p>{{ $post->body }}</p>    
             </div>
         </div>
+        
+        <div class='form'>
+            <a href='/form'>申し込みフォームへ</a>
+        </div>
+        
         <div class="footer">
-            <a href="/use/">戻る</a>
+            <a href="/user/">保育施設一覧へ戻る</a>
         </div>
     </body>
 </html>

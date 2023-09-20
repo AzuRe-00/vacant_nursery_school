@@ -13,7 +13,7 @@ class AddController extends Controller
         return view('admin.add');
     }
     
-     public function show(Post $post)
+    public function show(Post $post)
     {
         return view('admin.show')->with(['post' => $post]);
     }
@@ -21,6 +21,7 @@ class AddController extends Controller
     public function store(Request $request, Post $post)
     {
         $input = $request['post'];
+        
         $post->fill($input)->save();
         return redirect('/admin/posts/' . $post->id);
     }
