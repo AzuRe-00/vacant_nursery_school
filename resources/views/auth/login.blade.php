@@ -5,6 +5,10 @@
 
     <form method="POST" action="/login">
         @csrf
+        
+        @error('login')
+         <p>{{ $message }}</p>
+         @enderror
 
         <!-- Email Address -->
         <div>
