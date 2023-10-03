@@ -13,9 +13,9 @@
                 <x-input-error class='mt-2' :messages='$errors->get('user[name]')'/>
             </div>
             <div>
-                <x-input-label for=kana_name value='氏名（カナ）' />
-                <input id='kana_name' name='user[kana_name]' type='text' :value='old('user[kana_name]')' required />
-                <x-input-error class='mt-2' :messages='$errors->get('user[kana_name]')' />
+                <x-input-label for=name_kana value='氏名（カナ）' />
+                <input id='kana_name' name='user[name_kana]' type='text' :value='old('user[name_kana]')' required />
+                <x-input-error class='mt-2' :messages='$errors->get('user[name_kana]')' />
             </div>
             <div>
                 <x-input-label for='email' value='E-mail' />
