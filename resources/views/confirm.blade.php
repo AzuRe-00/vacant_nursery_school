@@ -15,7 +15,7 @@
                     </div>
                     <div>
                         <dt>氏名（カナ）</dt>
-                        <dd>{{ $inputs['user[kana_name]'] }}</dd>
+                        <dd>{{ $inputs['user[name_kana]'] }}</dd>
                     </div>
                     <div>
                         <dt>E-mail</dt>
